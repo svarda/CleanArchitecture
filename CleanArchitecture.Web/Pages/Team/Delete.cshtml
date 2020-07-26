@@ -1,0 +1,46 @@
+﻿@page
+@model Web.Pages.Team.DeleteModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete team</h1>
+
+<div>
+    <hr />
+    <dl class="row" style="font-size: 18px;">
+        <dt class="col-sm-8">
+            @Html.DisplayNameFor(model => model.Team.Name)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Team.Name)
+        </dd>
+        <dt class="col-sm-8">
+            @Html.DisplayNameFor(model => model.Team.FoundationYear)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Team.FoundationYear)
+        </dd>
+        <dt class="col-sm-8">
+            @Html.DisplayNameFor(model => model.Team.Wins)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Team.Wins)
+        </dd>
+        <dt class="col-sm-8">
+            @Html.DisplayNameFor(model => model.Team.EntryFeePaid)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Team.EntryFeePaid)
+        </dd>
+    </dl>
+    <div class="col-md-offset-2 col-md-10" style="margin-top: 50px;">
+        <form method="post">
+            <input type="hidden" asp-for="Team.Id" />
+            <input type="submit" value="Delete" class="btn btn-success btn-edit" />
+            <a asp-page="./Index" class="btn btn-primary btn-edit">Back</a>
+        </form>
+    </div>
+</div>

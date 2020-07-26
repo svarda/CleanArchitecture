@@ -1,0 +1,58 @@
+﻿@page
+@model Web.Pages.Team.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.AntiForgeryToken();
+}
+<h1>All teams</h1>
+@{
+    if (User.Identity.IsAuthenticated) {
+        <div class="form-group">
+            <div class="">
+                <a class="btn btn-primary btn-new" href="/Team/Create">Create new team</a>
+            </div>
+        </div>
+    }
+}
+<table class="table table-hover" id="team-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => Model.TeamList[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.TeamList[0].FoundationYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.TeamList[0].Wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.TeamList[0].EntryFeePaid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model.TeamList) {
+            <tr>
+                <td>@team.Name</td>
+                <td>@team.FoundationYear</td>
+                <td>@team.Wins</td>
+                <td>@Html.CheckBoxFor(m => team.EntryFeePaid, new { onclick = "return false" })</td>
+                @{
+                    if (User.Identity.IsAuthenticated) {
+                        <td>
+                            <a class="btn btn-success" style="width:80px;" href="/Team/Edit?id=@team.Id">Edit</a>
+                            <a class="btn btn-primary" href="/Team/Delete?id=@team.Id" style="width:80px;">Delete</a>
+                        </td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,45 @@
+﻿@model CleanArchitecture.Web.ViewModels.TeamViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<hr />
+
+@using (Html.BeginForm()) {
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-6">
+                <label asp-for="@Model.Name" class="control-label"></label>
+                <input id="edit-name" asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <label asp-for="@Model.FoundationYear" class="control-label"></label>
+                <input id="edit-year" asp-for="@Model.FoundationYear" class="form-control" />
+                <span asp-validation-for="@Model.FoundationYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <label asp-for="@Model.Wins" class="control-label"></label>
+                <input id="edit-wins" asp-for="@Model.Wins" class="form-control" />
+                <span asp-validation-for="@Model.Wins" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6" style="width: 600px;">
+                <label asp-for="@Model.EntryFeePaid" class="control-label checkbox-div" style="margin-bottom: 0px;"></label>
+                <input asp-for="@Model.EntryFeePaid" class="form-control checkbox-div" style="width: 25px;" />
+                <span asp-validation-for="@Model.EntryFeePaid" class="text-danger"></span>
+            </div>
+        </div>
+        @{if (@Model != null) { <input type="hidden" asp-for="@Model.Id" /> } }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="margin-top: 50px;">
+                <input type="submit" value="Save" class="btn btn-success btn-edit" />
+                <a asp-page="./Index" class="btn btn-primary btn-edit">Back</a>
+            </div>
+        </div>
+    </div>
+}
+

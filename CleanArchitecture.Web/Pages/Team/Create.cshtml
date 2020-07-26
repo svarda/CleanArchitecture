@@ -1,0 +1,17 @@
+﻿@page
+@model Web.Pages.Team.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.AntiForgeryToken();
+}
+<h1>Create new team</h1>
+
+@{
+    await Html.RenderPartialAsync("~/Pages/Team/Shared/EditTeamDataForm.cshtml", Model.Team);
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

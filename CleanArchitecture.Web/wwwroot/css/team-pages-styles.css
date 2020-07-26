@@ -1,0 +1,46 @@
+﻿.col-md-6 {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.col-md-10 {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.btn-action {
+    width: 140px;
+    margin: 20px;
+}
+
+.checkbox-div {
+    width: 150px;
+    font-size: 16px;
+}
+
+.text-danger {
+    font-size: 18px;
+    color: red;
+}
+
+.btn-edit {
+    width: 100px;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.btn-new {
+    width: 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.actionCompleted {
+    margin-left: 40px;
+    margin-top: 23px;
+    margin-right: 10px;
+    float: right;
+    color: #e80e0d;
+    font-size: 18px;
+    font-weight: bold;
+}
